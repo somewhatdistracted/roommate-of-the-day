@@ -7,6 +7,14 @@ import Login from '../Login/Login';
 function App() {
   const [token, setToken] = useState();
 
+  const ws = new WebSocket("");
+
+  // what an apiCall looks like
+  //const apiCall = {
+  //  event: "auth",
+  //  data: { username: },
+  //}
+
   if (!token) {
     return (
       <div className="App">
@@ -15,19 +23,7 @@ function App() {
             Roommate of the Day
           </p>
           <img src={logo} className="App-logo" alt="logo" />
-          <div className="login-wrapper">
-            <form>
-              <label>
-                <input type="text" placeholder="Username"/>
-              </label>
-              <label>
-                <input type="password" placeholder="Password"/>
-              </label>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-            </form>
-          </div>
+          <Login setToken={setToken} />
         </header>
       </div>
     );
